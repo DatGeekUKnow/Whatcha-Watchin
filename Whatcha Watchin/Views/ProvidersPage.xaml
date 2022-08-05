@@ -1,0 +1,56 @@
+﻿<Page
+    x:Class="Whatcha_Watchin.Views.Providers"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Whatcha_Watchin.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontSize="20"
+    FontFamily="MV Boli">
+
+    <Page.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF365BAA" Offset="0"/>
+            <GradientStop Color="#663F7037" Offset="1"/>
+        </LinearGradientBrush>
+    </Page.Background>
+
+    <RelativePanel>
+        <TextBlock Name="text1" TextAlignment="Center" FontSize="55" RelativePanel.AlignHorizontalCenterWithPanel="True">Select Provider</TextBlock>
+        <StackPanel RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="0,120,0,0">
+            <StackPanel Orientation="Horizontal">
+                <Button Name="hbo" Margin="20" Padding="10" Click="hbo_Click">
+                    <Image Source="https://play-lh.googleusercontent.com/GmIOtlRHzTffK3WSyNrz4NNrWFh_yUuhQb9UHXztk0ZxeeFzAUD52b9YVTGh7nsdJ8c=s260-rw" Stretch="None"></Image>
+                    <ToolTipService.ToolTip>
+                        <ToolTip Placement="Mouse" Content="HBO Max"/>
+                    </ToolTipService.ToolTip>
+                </Button>
+
+                <Button Name="disney" Margin="20" Padding="10" Click="disney_Click">
+                    <Image Source="https://play-lh.googleusercontent.com/xoGGYH2LgLibLDBoxMg-ZE16b-RNfITw_OgXBWRAPin2FZY4FGB9QKBYApR-0rSCkQ=s260-rw" Stretch="None"></Image>
+                    <ToolTipService.ToolTip>
+                        <ToolTip Placement="Mouse" Content="Disney Plus"/>
+                    </ToolTipService.ToolTip>
+                </Button>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <Button Name="netlfix" Margin="20" Padding="10" Click="netlfix_Click">
+                    <Image  Source="https://play-lh.googleusercontent.com/TBRwjS_qfJCSj1m7zZB93FnpJM5fSpMA_wUlFDLxWAb45T9RmwBvQd5cWR5viJJOhkI=s260-rw" Stretch="None"></Image>
+                    <ToolTipService.ToolTip>
+                        <ToolTip Placement="Mouse" Content="Netflix"/>
+                    </ToolTipService.ToolTip>
+                </Button>
+
+                <Button Name="hulu" Margin="20" Padding="10" Click="hulu_Click">
+                    <Image Source="https://play-lh.googleusercontent.com/4whGAVjZGrrlNxzheKAfBXrxggtyAb4euWLeQI8fDfVfdnFEZjE0DZTJ8DKoh64pqcIa=s260-rw" Stretch="None"></Image>
+                    <ToolTipService.ToolTip>
+                        <ToolTip Placement="Mouse" Content="Hulu"/>
+                    </ToolTipService.ToolTip>
+                </Button>
+            </StackPanel>
+
+        </StackPanel>
+    </RelativePanel>
+</Page>

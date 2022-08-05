@@ -1,0 +1,92 @@
+﻿<Page
+    x:Class="Whatcha_Watchin.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Whatcha_Watchin"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:viewmodels="using:Whatcha_Watchin.ViewModels"
+    FontSize="20"
+    FontFamily="MV Boli"
+    mc:Ignorable="d">
+    <Page.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF365BAA" Offset="0"/>
+            <GradientStop Color="#663F7037" Offset="1"/>
+        </LinearGradientBrush>
+    </Page.Background>
+
+    <Grid Margin="20,20,20,20">
+        <Border Name="moreMenuOpened" Background="#66000000" Width="200" HorizontalAlignment="Left" VerticalAlignment="Stretch">
+            <StackPanel>
+                <Button Name="buttonCloseMenu" HorizontalAlignment="Left" Width="40" Height="40" Click="buttonCloseMenu_Click" Content="| | |" RenderTransformOrigin="0.5,0.5">
+                    <ToolTipService.ToolTip>
+                        <ToolTip Placement="Mouse" Content="Close Options"/>
+                    </ToolTipService.ToolTip>
+                </Button>
+                <TextBlock Margin="40,-40,10,10" HorizontalAlignment="Stretch" TextAlignment="Center" FontSize="30">Options</TextBlock>
+                <Button Name="buttonProvider" Margin="10" HorizontalAlignment="Stretch" Click="buttonProvider_Click">Change Provider</Button>
+                <Button Name="buttonLists" Margin="10" HorizontalAlignment="Stretch" Click="buttonLists_Click">Open Lists</Button>
+                <TextBlock HorizontalTextAlignment="Center" Margin="10,10,10,0" FontSize="22">Select Media Type</TextBlock>
+                <CheckBox x:Name="CheckBoxMovie" Margin="20, 10, 10, 10" IsChecked="True" VerticalAlignment="Center" HorizontalAlignment="Left">Movie</CheckBox>
+                <CheckBox x:Name="CheckBoxSeries" Margin="0,-52,-30,0" VerticalAlignment="Center" HorizontalAlignment="Right" >Series</CheckBox>
+            </StackPanel>
+        </Border>
+        <Button Name="buttonAbout" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="65,0,0,30" Click="buttonAbout_Click">About</Button>
+        <Button Name="buttonOpenMenu" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="40" Click="buttonOpenMenu_Click" Content="| | |" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <CompositeTransform Rotation="90.083"/>
+            </Button.RenderTransform>
+            <ToolTipService.ToolTip>
+                <ToolTip Placement="Mouse" Content="Open Options"/>
+            </ToolTipService.ToolTip>
+        </Button>
+
+        <Border Name="ResultsBorder" Background="#19FFFFFF" VerticalAlignment="Stretch" Margin="210,0,70,0" Padding="1">
+            <StackPanel Name="Results" VerticalAlignment="Center" DataContext="{Binding Source=media}">
+                <StackPanel Name="ResultsInfo" Orientation="Vertical" HorizontalAlignment="Center" Margin="10,10,10,0">
+                    <Image Source="{Binding Path=Poster, Mode=OneWay}" Height="500"></Image>
+                    <StackPanel Margin="10,0,0,0" VerticalAlignment="Center" Orientation="Horizontal">
+                        <StackPanel Orientation="Horizontal" Margin="0,5,0,5">
+                            <TextBlock Text="{Binding Path=Title}">
+                                    <ToolTipService.ToolTip>
+                                        <ToolTip Placement="Mouse" Content="Title"/>
+                                    </ToolTipService.ToolTip>
+                            </TextBlock>
+                            <TextBlock Text=" * " Margin="0,0,10,0"></TextBlock>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,5,0,5">
+                            <TextBlock Text="{Binding Path=Year}">
+                                <ToolTipService.ToolTip>
+                                    <ToolTip Placement="Mouse" Content="Year"/>
+                                </ToolTipService.ToolTip>
+                            </TextBlock>
+                            <TextBlock Text=" * " Margin="0,0,10,0"></TextBlock>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,5,0,5">
+                            <TextBlock Text="{Binding Path=Rating}">
+                                <ToolTipService.ToolTip>
+                                    <ToolTip Placement="Mouse" Content="Rating"/>
+                                </ToolTipService.ToolTip>
+                            </TextBlock>
+                            <TextBlock Text=" Stars * " Margin="0,0,10,0"></TextBlock>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,5,0,5">
+                            <TextBlock Text="{Binding Path=Length}">
+                                <ToolTipService.ToolTip>
+                                    <ToolTip Placement="Mouse" Content="Run Time"/>
+                                </ToolTipService.ToolTip>
+                            </TextBlock>
+                            <TextBlock Text=" minutes" Margin="0,0,10,0"></TextBlock>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+                <TextBlock Name="Description" HorizontalAlignment="Center" Text="Description" FontSize="26"></TextBlock>
+                <TextBlock Name="DescriptionText" Text="{Binding Path=Synopsis}" Margin="30,20,30,50" HorizontalAlignment="Center" TextWrapping="WrapWholeWords"></TextBlock>
+            </StackPanel>
+        </Border>
+
+        <Button Name="buttonNext" VerticalAlignment="Center" HorizontalAlignment="Right" Click="buttonNext_Click">NEXT</Button>
+        <Button Name="addToWatchLater" VerticalAlignment="Bottom" Margin="0,0,74,4" Click="buttonaddToWatchLater_Click" HorizontalAlignment="Right">Add to Watch Later!</Button>
+    </Grid>
+</Page>
